@@ -16,6 +16,14 @@ public class CalculatorV2 {
         return res;
     }
 
+    public int multiply(int... nums) {
+        int res = 1;
+        for (int num : nums) {
+            res *= num;
+        }
+        return res;
+    }
+
     public int divide(int... nums) {
         int res = nums[0];
         for (int i = 1; i < nums.length; i++) {
