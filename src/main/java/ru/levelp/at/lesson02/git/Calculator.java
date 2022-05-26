@@ -37,4 +37,21 @@ public class Calculator {
         }
         return res;
     }
+
+    public int factorial(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("nums should not be less then 0");
+        }
+
+        if (num == 0) {
+            return 1;
+        }
+
+        int res = 1;
+        for(int i = 1; i <= num; i++) {
+            res *= i;
+        }
+
+        return res;
+    }
 }
