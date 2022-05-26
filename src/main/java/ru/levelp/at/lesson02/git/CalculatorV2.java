@@ -15,4 +15,12 @@ public class CalculatorV2 {
         }
         return res;
     }
+
+    public int multiply(int... nums) {
+        int res = 1;
+        for (int num : nums) {
+            res *= num;
+        }
+        return res;
+    }
 }
