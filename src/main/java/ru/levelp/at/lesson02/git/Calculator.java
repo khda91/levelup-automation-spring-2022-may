@@ -29,4 +29,12 @@ public class Calculator {
     public int divide(int a, int b) {
         return a / b;
     }
+
+    public int power(int num, int p) {
+        int res = 1;
+        for (int i = 0; i < p; i++) {
+            res *= num;
+        }
+        return res;
+    }
 }
