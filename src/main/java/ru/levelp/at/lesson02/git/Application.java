@@ -16,6 +16,7 @@ public class Application {
 
         System.out.println("Умножение");
         System.out.println("4 * 2 = " + calculator.multiply(4, 2));
+        System.out.println("4.025 * 2.336 = " + calculator.multiply(4.025, 2.336));
         System.out.println();
     }
 }
