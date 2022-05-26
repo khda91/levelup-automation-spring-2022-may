@@ -31,4 +31,16 @@ public class CalculatorV2 {
         }
         return res;
     }
+
+    public double add(double... nums) {
+        return Arrays.stream(nums).sum();
+    }
+
+    public double subtract(double... nums) {
+        double res = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            res -= nums[i];
+        }
+        return res;
+    }
 }
