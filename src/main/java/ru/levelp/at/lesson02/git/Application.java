@@ -13,5 +13,9 @@ public class Application {
         System.out.println("4 - 2 = " + calculator.subtract(4, 2));
         System.out.println("4.25 - 2.569 = " + calculator.subtract(4.25, 2.569));
         System.out.println();
+
+        System.out.println("Умножение");
+        System.out.println("4 * 2 = " + calculator.multiply(4, 2));
+        System.out.println();
     }
 }
