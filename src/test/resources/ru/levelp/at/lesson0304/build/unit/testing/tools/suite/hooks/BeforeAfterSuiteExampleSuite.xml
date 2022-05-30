@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!-- @BeforeSuite -->
+<suite name="Before After Suite Example Suite">
+
+  <test name="Before After Suite Example Suite">
+    <classes>
+      <!-- @BeforeClass -->
+      <class name="ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.CalculatorBeforeAfterSuiteHookTest">
+        <!-- @BeforeMethod -->
+        <!-- @Test -->
+        <!-- @AfterMethod-->
+      </class>
+      <!-- @AfterClass -->
+
+      <!-- @BeforeClass -->
+      <class name="ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.CalculatorBeforeAfterMethodHookTest">
+        <!-- @BeforeMethod -->
+        <!-- @Test -->
+        <!-- @AfterMethod-->
+      </class>
+      <!-- @AfterClass -->
+
+      <!-- @BeforeClass -->
+      <class name="ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.CalculatorBeforeAfterClassHookTest">
+        <!-- @BeforeMethod -->
+        <!-- @Test -->
+        <!-- @AfterMethod-->
+      </class>
+      <!-- @AfterClass -->
+    </classes>
+  </test>
+
+</suite>
+<!-- @AfterSuite -->

@@ -1,4 +1,4 @@
-package ru.levelp.at.lesson02.git;
+package ru.levelp.at.lesson0304.build.unit.testing.tools;
 
 public class Calculator {
 
@@ -31,6 +31,11 @@ public class Calculator {
     }
 
     public int power(int num, int p) {
+        if (p < 0) {
+            throw new IllegalArgumentException(String.format("Value of power for %d num should be positive. "
+                + "Your power value is %d", num, p));
+        }
+
         int res = 1;
         for (int i = 0; i < p; i++) {
             res *= num;
@@ -41,9 +46,7 @@ public class Calculator {
     public int factorial(int num) {
         if (num < 0) {
             throw new IllegalArgumentException("nums should not be less then 0");
-        }
-
-        if (num == 0) {
+        } else if (num == 0) {
             return 1;
         }
 
