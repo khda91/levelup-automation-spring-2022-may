@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    implementation 'commons-io:commons-io:2.11.0'
+    testImplementation 'org.testng:testng:7.6.0'
+}
+
+group = 'ru.levelp.at'
+version = '1.0-SNAPSHOT'
+description = 'levelup-automation-spring-2022-may'
+java.sourceCompatibility = JavaVersion.VERSION_11
+
+tasks.named('test') {
+    useTestNG()
+}

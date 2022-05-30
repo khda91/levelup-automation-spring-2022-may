@@ -1,0 +1,38 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<!-- @BeforeSuite -->
+<suite name="Method Exclusion Inclusion Example Suite">
+
+  <test name="Method Exclusion Inclusion Example Suite">
+    <classes>
+      <!-- @BeforeClass -->
+      <class name="ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.CalculatorBeforeAfterSuiteHookTest">
+        <methods>
+          <!-- @BeforeMethod -->
+          <include name="testAdd2And2"/>
+          <!-- @AfterMethod-->
+        </methods>
+      </class>
+      <!-- @AfterClass -->
+
+      <!-- @BeforeClass -->
+      <class name="ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.CalculatorBeforeAfterMethodHookTest">
+        <!-- @BeforeMethod -->
+        <!-- @Test -->
+        <!-- @AfterMethod-->
+      </class>
+      <!-- @AfterClass -->
+
+      <!-- @BeforeClass -->
+      <class name="ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.CalculatorBeforeAfterClassHookTest">
+        <methods>
+          <!-- @BeforeMethod -->
+          <exclude name="testAdd2And2"/>
+          <!-- @AfterMethod-->
+        </methods>
+      </class>
+      <!-- @AfterClass -->
+    </classes>
+  </test>
+
+</suite>
+    <!-- @AfterSuite -->
