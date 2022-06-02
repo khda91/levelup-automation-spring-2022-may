@@ -1,17 +1,17 @@
 package ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.inheritance;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-public class CalculatorBeforeAfterSuiteHookTest extends BaseCalculatorBeforeAfterHooksTest {
+public class CalculatorBeforeAfterClassHookIT extends BaseCalculatorBeforeAfterHooksIT {
 
     @Test
     public void testAdd2And2() {
         System.out.println(String.format("Class: %s, test method %s", this.getClass().getCanonicalName(),
             "testAdd2And2"));
         int res = calculator.add(2, 2);
-        assertEquals(res, 4);
+        assertEquals(4, res);
     }
 
     @Test
@@ -19,6 +19,6 @@ public class CalculatorBeforeAfterSuiteHookTest extends BaseCalculatorBeforeAfte
         System.out.println(String.format("Class: %s, test method %s", this.getClass().getCanonicalName(),
             "testAdd2Point0And4Point0"));
         double res = calculator.add(2.0D, 4.0D);
-        assertEquals(res, 6.0D);
+        assertEquals(6.0D, res);
     }
 }

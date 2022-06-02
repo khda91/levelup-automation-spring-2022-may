@@ -1,23 +1,24 @@
 package ru.levelp.at.lesson0304.build.unit.testing.tools.simple;
 
-import static org.testng.Assert.assertEquals;
 
-import org.testng.annotations.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 import ru.levelp.at.lesson0304.build.unit.testing.tools.Calculator;
 
-public class CalculatorSimpleTest {
+class CalculatorSimpleIT {
 
     @Test
-    public void testAdd2And2() {
+    void testAdd2And2() {
         Calculator calculator = new Calculator();
         int res = calculator.add(2, 2);
-        assertEquals(res, 4);
+        assertEquals(4, res);
     }
 
     @Test
-    public void testAdd2Point0And4Point0() {
+    void testAdd2Point0And4Point0() {
         Calculator calculator = new Calculator();
         double res = calculator.add(2.0D, 4.0D);
-        assertEquals(res, 6.0D);
+        assertEquals(6.0D, res);
     }
 }
