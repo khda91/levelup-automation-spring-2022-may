@@ -1,15 +1,15 @@
 package ru.levelp.at.lesson0304.build.unit.testing.tools.hooks.inheritance;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import ru.levelp.at.lesson0304.build.unit.testing.tools.Calculator;
 
-public class CalculatorBeforeAfterMethodHookTest extends BaseCalculatorBeforeAfterHooksTest {
+public class CalculatorBeforeAfterMethodHookIT extends BaseCalculatorBeforeAfterHooksIT {
 
-    @BeforeMethod
+    @BeforeEach
     @Override
     public void setUp() {
         System.out.println("^_^ ^_^ ^_^");
@@ -23,7 +23,7 @@ public class CalculatorBeforeAfterMethodHookTest extends BaseCalculatorBeforeAft
         System.out.println(String.format("Class: %s, test method %s", this.getClass().getCanonicalName(),
             "testAdd2And2"));
         int res = calculator.add(2, 2);
-        assertEquals(res, 4);
+        assertEquals(4, res);
     }
 
     @Test
@@ -31,10 +31,10 @@ public class CalculatorBeforeAfterMethodHookTest extends BaseCalculatorBeforeAft
         System.out.println(String.format("Class: %s, test method %s", this.getClass().getCanonicalName(),
             "testAdd2Point0And4Point0"));
         double res = calculator.add(2.0D, 4.0D);
-        assertEquals(res, 6.0D);
+        assertEquals(6.0D, res);
     }
 
-    @AfterClass
+    @AfterAll
     @Override
     public void afterClass() {
         System.out.println("XD XD XD");
