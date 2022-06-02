@@ -19,18 +19,60 @@
     <checkstyle.version>10.2</checkstyle.version>
     <testng.version>7.6.0</testng.version>
     <commons-io.version>2.11.0</commons-io.version>
+    <commons-lang3.version>3.12.0</commons-lang3.version>
 
     <!-- Plugins -->
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+
+    <!-- project properties -->
+    <test.resources.base.dir>${project.basedir}/src/test/resources</test.resources.base.dir>
+    <suites.base.dir>${test.resources.base.dir}/ru/levelp/at</suites.base.dir>
+    <lesson0304.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite/hooks</lesson0304.suite.base.dir>
   </properties>
+
+  <profiles>
+    <profile>
+      <id>data-provider-tests</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <properties>
+          <test.suite.name>dataprovider/DataProviderExampleSuite.xml</test.suite.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>groups-tests</id>
+
+      <properties>
+        <test.suite.name>group/BeforeAfterGroupsExampleSuite.xml</test.suite.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>inheritance-tests</id>
+
+      <properties>
+        <test.suite.name>inheritance/BeforeAfterTestExampleSuite.xml</test.suite.name>
+      </properties>
+    </profile>
+  </profiles>
 
   <dependencies>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>${commons-io.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
     </dependency>
 
     <dependency>
@@ -110,6 +152,17 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>${lesson0304.suite.base.dir}/${test.suite.name}</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
       </plugin>
     </plugins>
   </build>
