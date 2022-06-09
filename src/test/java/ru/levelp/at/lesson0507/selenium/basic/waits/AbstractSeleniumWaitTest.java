@@ -1,4 +1,4 @@
-package ru.levelp.at.lesson0507.selenium.locators;
+package ru.levelp.at.lesson0507.selenium.basic.waits;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +8,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ru.levelp.at.utils.SleepUtils;
 
-public abstract class AbstractSeleniumLocatorExampleTest {
+public abstract class AbstractSeleniumWaitTest {
 
-    private static final String GOOGLE_URL = "https://google.com";
+    protected static final String GOOGLE_URL = "https://google.com";
+
+    protected static final String SEARCH_STRING = "selenium";
+
+    protected static final Integer EXPECTED_SEARCH_RESULT_SIZE = 2;
+    protected static final String EXPECTED_FIRST_LINK_TITLE = "Selenium";
 
     protected WebDriver driver;
 
