@@ -1,4 +1,4 @@
-package ru.levelp.at.lesson0507.selenium.sample;
+package ru.levelp.at.lesson0507.selenium.basic.sample;
 
 import static org.testng.Assert.assertEquals;
 
