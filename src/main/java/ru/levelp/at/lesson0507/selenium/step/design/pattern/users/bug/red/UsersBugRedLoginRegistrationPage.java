@@ -1,4 +1,4 @@
-package ru.levelp.at.lesson0507.selenium.page.objects.voids.refactor;
+package ru.levelp.at.lesson0507.selenium.step.design.pattern.users.bug.red;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
