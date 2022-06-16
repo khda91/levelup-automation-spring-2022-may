@@ -1,4 +1,4 @@
-package ru.levelp.at.lesson0507.selenium.page.objects.voids.refactor;
+package ru.levelp.at.lesson0507.selenium.page.objects.fluent.without.generic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,25 +30,48 @@ public class UsersBugRedLoginRegistrationPage extends UsersBugRedBasePage {
         super(driver);
     }
 
-    @Override
-    public void open() {
+    public UsersBugRedLoginRegistrationPage open() {
         open(USERS_BUGRED_LOGIN_REG_PAGE_URL);
+        return this;
     }
 
-    public void fillUsernameInputField(final String username) {
+    public UsersBugRedLoginRegistrationPage fillUsernameInputField(final String username) {
         fillInputField(usernameInputField, username);
+        return this;
     }
 
-    public void fillEmailInputField(final String email) {
+    public UsersBugRedLoginRegistrationPage fillEmailInputField(final String email) {
         wait.until(ExpectedConditions.visibilityOf(emailInputField)).sendKeys(email);
+        return this;
     }
 
-    public void fillPasswordInputField(final String password) {
+    public UsersBugRedLoginRegistrationPage fillPasswordInputField(final String password) {
         wait.until(ExpectedConditions.visibilityOf(passwordInputField)).sendKeys(password);
+        return this;
     }
 
-    public void clickRegisterButton() {
+    public UsersBugRedUsersPage clickRegisterButton() {
         wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
+        return new UsersBugRedUsersPage(driver);
+    }
+
+    public UsersBugRedUsersPage successClickRegisterButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
+        return new UsersBugRedUsersPage(driver);
+    }
+
+    public UsersBugRedLoginRegistrationPage failedClickRegisterButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
+        return this;
+    }
+
+    public UsersBugRedBasePage clickWithReturnCommonType() {
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
+        if (Boolean.TRUE.equals(wait.until(ExpectedConditions.invisibilityOf(errorTextLabel)))) {
+            return new UsersBugRedLoginRegistrationPage(driver);
+        } else {
+            return this;
+        }
     }
 
     public String getErrorTextLabelText() {

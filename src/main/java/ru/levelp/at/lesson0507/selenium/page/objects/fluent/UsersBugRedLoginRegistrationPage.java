@@ -1,4 +1,4 @@
-package ru.levelp.at.lesson0507.selenium.page.objects.voids.refactor;
+package ru.levelp.at.lesson0507.selenium.page.objects.fluent;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class UsersBugRedLoginRegistrationPage extends UsersBugRedBasePage {
+public class UsersBugRedLoginRegistrationPage extends UsersBugRedBasePage<UsersBugRedLoginRegistrationPage> {
 
     private static final String USERS_BUGRED_LOGIN_REG_PAGE_URL = "/user/login/index.html";
 
@@ -23,35 +23,33 @@ public class UsersBugRedLoginRegistrationPage extends UsersBugRedBasePage {
     @FindBy(how = How.XPATH, using = "//form[contains(@action, 'register')]//*[@name='act_register_now']")
     private WebElement registerButton;
 
-    @FindBy(xpath = "//form[contains(@action, 'register')]/p")
-    private WebElement errorTextLabel;
-
     public UsersBugRedLoginRegistrationPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public void open() {
+    public UsersBugRedLoginRegistrationPage open() {
         open(USERS_BUGRED_LOGIN_REG_PAGE_URL);
+        return this;
     }
 
-    public void fillUsernameInputField(final String username) {
+    public UsersBugRedLoginRegistrationPage fillUsernameInputField(final String username) {
         fillInputField(usernameInputField, username);
+        return this;
     }
 
-    public void fillEmailInputField(final String email) {
+    public UsersBugRedLoginRegistrationPage fillEmailInputField(final String email) {
         wait.until(ExpectedConditions.visibilityOf(emailInputField)).sendKeys(email);
+        return this;
     }
 
-    public void fillPasswordInputField(final String password) {
+    public UsersBugRedLoginRegistrationPage fillPasswordInputField(final String password) {
         wait.until(ExpectedConditions.visibilityOf(passwordInputField)).sendKeys(password);
+        return this;
     }
 
-    public void clickRegisterButton() {
+    public UsersBugRedUsersPage clickRegisterButton() {
         wait.until(ExpectedConditions.elementToBeClickable(registerButton)).click();
-    }
-
-    public String getErrorTextLabelText() {
-        return wait.until(ExpectedConditions.visibilityOf(errorTextLabel)).getText();
+        return new UsersBugRedUsersPage(driver);
     }
 }
