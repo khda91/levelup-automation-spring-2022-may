@@ -37,6 +37,7 @@
     <test.resources.base.dir>${project.basedir}/src/test/resources</test.resources.base.dir>
     <suites.base.dir>${test.resources.base.dir}/ru/levelp/at</suites.base.dir>
     <lesson0304.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite/hooks</lesson0304.suite.base.dir>
+    <rest-assured.version>5.1.1</rest-assured.version>
   </properties>
 
   <profiles>
@@ -147,6 +148,11 @@
       <!--      </exclusions>-->
     </dependency>
 
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${rest-assured.version}</version>
+    </dependency>
 
     <!--    <dependency>-->
     <!--      <groupId>ru.test</groupId>-->
