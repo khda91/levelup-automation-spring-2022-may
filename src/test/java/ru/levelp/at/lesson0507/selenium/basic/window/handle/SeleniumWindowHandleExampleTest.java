@@ -45,7 +45,6 @@ public class SeleniumWindowHandleExampleTest {
         SleepUtils.sleep(1500);
         driver.get(YA_URL);
         windowHandles = driver.getWindowHandles();
-        var yaRuWindowHandle = driver.getWindowHandle();
         System.out.println(String.format("After open %s window handles are %s", YA_URL, windowHandles));
         SleepUtils.sleep(2500);
 
@@ -58,6 +57,7 @@ public class SeleniumWindowHandleExampleTest {
         SleepUtils.sleep(2500);
 
         // закрываем yandex.ru
+        var yaRuWindowHandle = driver.getWindowHandle();
         driver.close();
         driver.switchTo().window(yaRuWindowHandle);
         windowHandles = driver.getWindowHandles();

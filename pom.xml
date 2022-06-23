@@ -110,7 +110,6 @@
       <version>${bcpkix-jdk15on.version}</version>
     </dependency>
 
-
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
@@ -146,6 +145,13 @@
       <!--          <artifactId>jquery</artifactId>-->
       <!--        </exclusion>-->
       <!--      </exclusions>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
