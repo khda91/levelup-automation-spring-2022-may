@@ -1,0 +1,6 @@
+[
+    {
+        "name": "Timeout Issues",
+        "traceRegex": ".*org.openqa.selenium.TimeoutException.*"
+    }
+]

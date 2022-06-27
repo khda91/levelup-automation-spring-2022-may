@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Allure Api Rest Assured Suite">
+
+  <test name="Allure Rest Assured">
+    <packages>
+      <package name="ru.levelp.at.lesson1011.cicd.api.*"/>
+    </packages>
+  </test>
+
+</suite>
