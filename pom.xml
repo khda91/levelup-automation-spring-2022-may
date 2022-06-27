@@ -17,7 +17,8 @@
 
     <!-- dependencies -->
     <checkstyle.version>10.2</checkstyle.version>
-    <testng.version>7.6.0</testng.version>
+    <!--    <testng.version>7.6.0</testng.version>-->
+    <testng.version>7.4.0</testng.version>
     <commons-io.version>2.11.0</commons-io.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
     <selenium-java.version>4.2.1</selenium-java.version>
@@ -26,29 +27,31 @@
     <bcpkix-jdk15on.version>1.70</bcpkix-jdk15on.version>
     <javafaker.version>1.0.2</javafaker.version>
     <snakeyaml.version>1.30</snakeyaml.version>
+    <rest-assured.version>5.1.1</rest-assured.version>
+    <lombok.version>1.18.24</lombok.version>
+    <allure.version>2.17.3</allure.version>
+    <aspectj.version>1.9.7</aspectj.version>
 
     <!-- Plugins -->
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+    <allure-maven.version>2.11.2</allure-maven.version>
 
     <!-- project properties -->
     <test.resources.base.dir>${project.basedir}/src/test/resources</test.resources.base.dir>
     <suites.base.dir>${test.resources.base.dir}/ru/levelp/at</suites.base.dir>
-    <lesson0304.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite/hooks</lesson0304.suite.base.dir>
-    <rest-assured.version>5.1.1</rest-assured.version>
+    <lesson.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite/hooks</lesson.suite.base.dir>
   </properties>
 
   <profiles>
     <profile>
       <id>data-provider-tests</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
 
       <properties>
-          <test.suite.name>dataprovider/DataProviderExampleSuite.xml</test.suite.name>
+        <lesson.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite</lesson.suite.base.dir>
+        <test.suite.name>dataprovider/DataProviderExampleSuite.xml</test.suite.name>
       </properties>
     </profile>
 
@@ -56,6 +59,7 @@
       <id>groups-tests</id>
 
       <properties>
+        <lesson.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite</lesson.suite.base.dir>
         <test.suite.name>group/BeforeAfterGroupsExampleSuite.xml</test.suite.name>
       </properties>
     </profile>
@@ -64,7 +68,29 @@
       <id>inheritance-tests</id>
 
       <properties>
+        <lesson.suite.base.dir>${suites.base.dir}/lesson0304/build/unit/testing/tools/suite</lesson.suite.base.dir>
         <test.suite.name>inheritance/BeforeAfterTestExampleSuite.xml</test.suite.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>allure-rest-assured</id>
+
+      <properties>
+        <lesson.suite.base.dir>${suites.base.dir}/lesson1011/cicd/api</lesson.suite.base.dir>
+        <test.suite.name>AllureApiRestAssuredSuite.xml</test.suite.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>allure-ui</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <properties>
+        <lesson.suite.base.dir>${suites.base.dir}/lesson1011/cicd/ui</lesson.suite.base.dir>
+        <test.suite.name>AllureUiSuite.xml</test.suite.name>
       </properties>
     </profile>
   </profiles>
@@ -150,7 +176,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
+      <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -159,6 +185,18 @@
       <artifactId>rest-assured</artifactId>
       <version>${rest-assured.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
+
+        <dependency>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-rest-assured</artifactId>
+          <version>${allure.version}</version>
+        </dependency>
 
     <!--    <dependency>-->
     <!--      <groupId>ru.test</groupId>-->
@@ -231,11 +269,35 @@
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>${lesson0304.suite.base.dir}/${test.suite.name}</suiteXmlFile>
+            <suiteXmlFile>${lesson.suite.base.dir}/${test.suite.name}</suiteXmlFile>
           </suiteXmlFiles>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
+
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+    <plugins>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>${allure-maven.version}</version>
+        <configuration>
+          <reportVersion>${allure.version}</reportVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
