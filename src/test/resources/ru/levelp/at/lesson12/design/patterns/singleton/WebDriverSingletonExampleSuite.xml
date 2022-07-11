@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Web Driver Singleton Suite">
+
+  <test name="Web Driver Singleton Example">
+    <classes>
+      <class name="ru.levelp.at.lesson12.design.patterns.singleton.WebDriverSingletonOpenTest"/>
+      <class name="ru.levelp.at.lesson12.design.patterns.singleton.WebDriverSingletonCloseTest"/>
+    </classes>
+  </test>
+
+</suite>

@@ -85,12 +85,24 @@
     <profile>
       <id>allure-ui</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
+        <activeByDefault>false</activeByDefault>
       </activation>
 
       <properties>
         <lesson.suite.base.dir>${suites.base.dir}/lesson1011/cicd/ui</lesson.suite.base.dir>
         <test.suite.name>AllureUiSuite.xml</test.suite.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>design-patterns-factory-method-suite</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <properties>
+        <lesson.suite.base.dir>${suites.base.dir}/lesson12/design/patterns/factory/method</lesson.suite.base.dir>
+        <test.suite.name>WebDriverFactoryMethodExampleSuite.xml</test.suite.name>
       </properties>
     </profile>
   </profiles>
