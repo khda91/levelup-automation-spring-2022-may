@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Web Driver Factory Method Suite">
+
+  <test name="Web Driver Factory Method Example">
+    <classes>
+      <class name="ru.levelp.at.lesson12.design.patterns.factory.method.WebDriverFactoryCmdTest"/>
+    </classes>
+  </test>
+
+</suite>
